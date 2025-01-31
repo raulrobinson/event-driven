@@ -4,14 +4,29 @@
 server:
   port: 9003
 
-# ---------------------
-# Kafka Configuration
-# ---------------------
+# --------------------------------
+# Kafka & Database Configuration
+# --------------------------------
 spring:
+  sql:
+    init:
+      platform: postgres
+  datasource:
+    url: jdbc:postgresql://localhost:5432/event_driven
+    username: event_driven
+    password: event_driven
+    hikari:
+      maximum-pool-size: 1
+      minimum-idle: 1
+      maxLifetime: 600000
+  jpa:
+    show-sql: false
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
   kafka:
     consumer:
       properties:
-        #spring.deserialization.value.delegate.class: org.springframework.kafka.support.serializer.JsonDeserializer
         spring:
           json:
             trusted:

@@ -111,7 +111,7 @@ services:
       CONNECT_STATUS_STORAGE_REPLICATION_FACTOR: "1"
       CONNECT_PLUGIN_PATH: '/usr/share/java,/etc/kafka-connect/jars,/usr/share/confluent-hub-components'
     volumes:
-      - ./connectors:/etc/kafka-connect/jars/
+      - ./data/connectors:/etc/kafka-connect/jars/
     depends_on:
       - zoo-ed
       - kafka-ed
@@ -142,5 +142,19 @@ services:
     depends_on:
       - kafka-ed
       - zoo-ed
+
+  postgres-ed:
+    image: postgres:latest
+    container_name: postgres-ed
+    restart: always
+    environment:
+      - POSTGRES_USER=event_driven
+      - POSTGRES_PASSWORD=event_driven
+      - POSTGRES_DB=event_driven
+      - SCHEMA=event_driven
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./data/db_data_parking:/var/lib/postgresql/data
 
 
