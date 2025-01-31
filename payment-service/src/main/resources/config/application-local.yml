@@ -1,0 +1,31 @@
+# --------------
+# Server Port
+# --------------
+server:
+  port: 9003
+
+# ---------------------
+# Kafka Configuration
+# ---------------------
+spring:
+  kafka:
+    consumer:
+      properties:
+        #spring.deserialization.value.delegate.class: org.springframework.kafka.support.serializer.JsonDeserializer
+        spring:
+          json:
+            trusted:
+              packages: '*'
+          deserialization:
+            value:
+              delegate:
+                class: org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      bootstrap-servers: localhost:9092
+      auto-offset-reset: earliest
+      group-id: payment
+    topic:
+      name: order_topics
+
+

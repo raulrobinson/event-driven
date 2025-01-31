@@ -1,0 +1,17 @@
+# --------------
+# Server Port
+# --------------
+server:
+  port: 8080
+
+# ---------------------
+# Kafka Configuration
+# ---------------------
+spring:
+  kafka:
+    producer:
+      bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS}
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+    topic:
+      name: ${KAFKA_TOPIC}

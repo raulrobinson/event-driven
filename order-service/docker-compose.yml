@@ -1,0 +1,15 @@
+services:
+  order-service:
+    build:
+        context: .
+        dockerfile: Dockerfile
+    container_name: order-service
+    environment:
+      - SPRING_PROFILES_ACTIVE=prod
+    ports:
+      - "8081:8080"
+    restart: unless-stopped
+    networks:
+      - public
+networks:
+  public:

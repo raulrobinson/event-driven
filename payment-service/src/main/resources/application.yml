@@ -1,0 +1,59 @@
+# -------------------------
+# Application Configuration
+# -------------------------
+spring:
+  application:
+    name: @project.name@
+
+# -------------------------
+# Swagger Configuration
+# -------------------------
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    use-root-path: true
+
+# -------------------------
+# OpenAPI Definition
+# -------------------------
+openapi:
+  service:
+    host: http://localhost:${server.port}
+    title: @project.name@
+    version: @project.version@
+    description: @project.description@
+    contact:
+      name: Raul Bolivar Navas
+      email: rasysbox@hotmail.com
+
+# -------------------------
+# Controller Configuration
+# -------------------------
+controller:
+  properties:
+    base-path: /@project.name@/v1
+
+# --------------------------------
+# Logging & Metrics Configuration
+# --------------------------------
+logging:
+  level:
+    org.hibernate: warn
+info:
+  project-version: @project.version@
+  build-timestamp: ${maven.build.timestamp}
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      status:
+        http-mapping:
+          down: 500
+      show-details: always
+  http exchanges:
+    recording:
+      include: request-headers,time-taken,session-id
