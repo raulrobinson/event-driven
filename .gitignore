@@ -38,4 +38,4 @@ target/
 .idea/*.xml
 .idea/*.iml
 
-connectors/
+data/**
