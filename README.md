@@ -4,7 +4,7 @@ This repository showcases an event-driven architecture implemented with Spring B
 
 ![event-driven.png](event-driven.png)
 
-## Repository Description
+### Repository Description
 
 In this architecture, the OrderService, PaymentService, and EmailService microservices operate independently and communicate via event-driven messaging.
 
@@ -14,7 +14,7 @@ In this architecture, the OrderService, PaymentService, and EmailService microse
 
 This repository contains code, configuration, and resources for building and deploying this event-driven system. It serves as a practical example for those interested in implementing event-driven architectures with Spring Boot and Kafka.
 
-## Operation
+### Operation
 
 1. Start the Kafka broker using Docker Compose:
 
@@ -43,11 +43,15 @@ curl -X 'POST' \
 
 Feel free to customize the description to better suit your specific project's goals and scope.
 
-## Author
+### Kafka UI
+
+You can access the Kafka UI by visiting [http://localhost:7000](http://localhost:7000) in your web browser.
+
+### Author
 
 Created by **Raul Bolivar Navas** [rasysbox.com](https://rasysbox) - feel free to contact us!
 
-## License
-
+---
+### License
 This project is licensed under the terms of the MIT license.
 
