@@ -35,4 +35,4 @@ target/
 *.iml
 *.ipr
 
-.idea/
+.idea/*.xml
