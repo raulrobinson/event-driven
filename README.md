@@ -48,7 +48,7 @@ You can access the Kafka UI by visiting [http://localhost:7000](http://localhost
 
 ## Frontend
 
-The frontend application is a simple React application that allows users to create new orders. It communicates with the OrderService via REST API which acts as a producer and sends events to the Kafka broker.
+The frontend application is a demo Next application that allows users to create new orders. It communicates with the OrderService via REST API which acts as a producer and sends events to the Kafka broker.
 
 ![img.png](img.png)
 
