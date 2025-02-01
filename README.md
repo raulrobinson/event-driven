@@ -31,7 +31,6 @@ curl -X 'POST' \
   -H 'accept: */*' \
   -H 'Content-Type: application/json' \
   -d '{
-  "orderId": "1",
   "name": "Laptop PC",
   "qty": 10,
   "price": 12499.99

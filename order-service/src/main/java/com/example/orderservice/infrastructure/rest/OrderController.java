@@ -2,6 +2,7 @@ package com.example.orderservice.infrastructure.rest;
 
 import com.example.commonpackages.dto.Order;
 import com.example.commonpackages.dto.OrderEvent;
+import com.example.orderservice.application.dto.OrderRequestDto;
 import com.example.orderservice.application.usecase.SendMessage;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -32,8 +33,12 @@ public class OrderController {
             @ApiResponse(responseCode = "200", description = "Order placed successfully"),
             @ApiResponse(responseCode = "400", description = "Bad request")
     })
-    public String placeOrder(@RequestBody Order order) {
+    public String placeOrder(@RequestBody OrderRequestDto orderRequest) {
+        Order order = new Order();
         order.setOrderId(UUID.randomUUID().toString());
+        order.setName(orderRequest.getName());
+        order.setQty(orderRequest.getQty());
+        order.setPrice(orderRequest.getPrice());
 
         OrderEvent orderEvent = new OrderEvent();
         orderEvent.setStatus("PENDING");
