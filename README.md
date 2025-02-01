@@ -46,6 +46,12 @@ Feel free to customize the description to better suit your specific project's go
 
 You can access the Kafka UI by visiting [http://localhost:7000](http://localhost:7000) in your web browser.
 
+## Frontend
+
+The frontend application is a simple React application that allows users to create new orders. It communicates with the OrderService via REST API which acts as a producer and sends events to the Kafka broker.
+
+![img.png](img.png)
+
 ### Author
 
 Created by **Raul Bolivar Navas** [rasysbox.com](https://rasysbox) - feel free to contact us!
