@@ -3,6 +3,8 @@
 import {useEffect, useState} from "react";
 import OrderI from "../../interfaces/OrderI";
 import axios from "axios";
+import useWebSocket from "react-use-websocket";
+import { Bell } from "lucide-react";
 
 export default function Home() {
     const [orders, setOrders] = useState<OrderI[]>([]);
@@ -10,6 +12,15 @@ export default function Home() {
     const [name, setName] = useState("");
     const [qty, setQty] = useState<number>(0);
     const [price, setPrice] = useState<number>(0.0);
+    const [notifications, setNotifications] = useState<OrderI[]>([]);
+
+    // const { lastJsonMessage } = useWebSocket("ws://localhost:9002/ws", {
+    //     onMessage: (event: { data: string; }) => {
+    //         const data: OrderI = JSON.parse(event.data);
+    //         setNotifications((prev) => [...prev, data]);
+    //     },
+    //     shouldReconnect: () => true,
+    // });
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -35,6 +46,15 @@ export default function Home() {
         }
     };
 
+    // useEffect(() => {
+    //     const eventSource = new EventSource("/api/email-notifications"); // Ajustar con tu servicio
+    //     eventSource.onmessage = (event) => {
+    //         const newMessage = event.data;
+    //         setNotifications((prev) => [...prev, newMessage]);
+    //     };
+    //     return () => eventSource.close();
+    // }, []);
+
     useEffect(() => {
         fetchData();
         const interval = setInterval(fetchData, 1000);
@@ -57,6 +77,18 @@ export default function Home() {
 
     return (
         <div className="container mx-auto p-4">
+            {/* Icono de Notificación */}
+            {/*<div className="absolute top-4 right-4">*/}
+            {/*    <div className="relative cursor-pointer">*/}
+            {/*        <Bell className="w-8 h-8 text-gray-700" />*/}
+            {/*        {notifications.length > 0 && (*/}
+            {/*            <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs px-2 py-1 rounded-full">*/}
+            {/*                {notifications.length}*/}
+            {/*            </span>*/}
+            {/*        )}*/}
+            {/*    </div>*/}
+            {/*</div>*/}
+
             <h1 className="text-4xl font-bold text-center">Welcome to the Event Driven Architecture Workshop</h1>
             <div className="overflow-x-auto mt-6">
                 <h2 className="text-2xl mb-4">Orders</h2>

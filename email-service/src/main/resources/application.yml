@@ -40,6 +40,7 @@ controller:
 logging:
   level:
     org.hibernate: warn
+    org.apache.kafka: warn
 info:
   project-version: @project.version@
   build-timestamp: ${maven.build.timestamp}
