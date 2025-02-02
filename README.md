@@ -6,7 +6,7 @@ This repository showcases an event-driven architecture implemented with Spring B
 
 ### Repository Description
 
-In this architecture, the OrderService, PaymentService, and EmailService microservices operate independently and communicate via event-driven messaging.
+In this architecture, the ***OrderService***, ***PaymentService***, and ***EmailService*** microservices operate independently and communicate via event-driven messaging.
 
 - **OrderService:** A producer application that generates events and sends them to a Kafka message broker.
 - **PaymentService:** A consumer microservice responsible for processing events related to payment processing.
