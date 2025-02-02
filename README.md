@@ -2,7 +2,7 @@
 
 This repository showcases an event-driven architecture implemented with Spring Boot and Apache Kafka.
 
-![event-driven.png](event-driven.png)
+![event-driven-arch.png](event-driven-arch.png)
 
 ### Repository Description
 
